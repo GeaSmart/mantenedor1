@@ -8,19 +8,20 @@ import { InfoService } from '../services/info.service';
 })
 export class ListComponent implements OnInit {
 
-  cadena = '';
+  cadena='';
   data = [];
   loading = false;
 
-  constructor(private InfoService: InfoService) { }
+  constructor(private infoService: InfoService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
   buscar(){
+    
     this.loading=true;
     this.data=[];
-    this.InfoService.obtenerData(this.cadena).subscribe(
+    this.infoService.obtenerData(this.cadena).subscribe(
       (response) => {
         this.data = response;
         this.loading = false;

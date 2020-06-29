@@ -39,8 +39,8 @@ export class InfoService {
     return new Observable(
       (suscriber)=>{
         setTimeout(() => {
-          const data  = this.personas.filter(e=>e.dni > 0
-            || e.nombres.indexOf(data) >= 0 );
+          /*alert(valor);*/
+          const data  = this.personas.filter(e => e.nombres.indexOf(valor) >= 0 );
           suscriber.next(data);
         }, 500);
       }

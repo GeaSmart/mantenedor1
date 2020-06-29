@@ -1,5 +1,14 @@
 <app-cabecera></app-cabecera>
 
+<div>
+    <label for="nombre">Nombre:
+        <input id = "nombre" type="text" [(ngModel)]="cadena">
+    </label>     
+    <button (click)="buscar()">Buscar</button>
+</div>
+
+<span *ngIf="loading">Loading</span>
+
 <table>
     <thead>
         <tr>
@@ -14,15 +23,16 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let persona of personas">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+        <tr *ngFor="let persona of data">
+            <td> X </td>
+            <td> {{persona.dni}} </td>
+            <td> {{persona.nombres}} </td>
+            <td> {{persona.correo}} </td>
+            <td> {{persona.fecha_alta}} </td>
+            <td> {{persona.numero_celular}} </td>
+            <td> {{persona.activo}} </td>
+            <td> X Y Z </td>
+            
         </tr>
     </tbody>
 </table>
