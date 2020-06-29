@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { InfoService } from '../services/info.service';
 
 @Component({
   selector: 'app-list',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
-  constructor() { }
+  cadena = '';
+  data = [];
+  loading = false;
+
+  constructor(private InfoService: InfoService) { }
 
   ngOnInit(): void {
+  }
+
+  buscar(){
+    this.loading=true;
+    this.data=[];
+    this.InfoService.obtenerData(this.cadena).subscribe(
+      (response) => {
+        this.data = response;
+        this.loading = false;
+      }
+    );
   }
 
 }
